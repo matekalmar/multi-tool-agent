@@ -80,7 +80,7 @@ The `notebooks/demo.ipynb` file contains the original experimentation and intera
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/multi-tool-agent.git
+git clone https://github.com/matekalmar/multi-tool-agent.git
 cd multi-tool-agent
 pip install -e .
 ```
