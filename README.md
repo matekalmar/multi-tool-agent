@@ -38,10 +38,21 @@ Safely evaluates arithmetic expressions.
 
 Uses an LLM agent to decide which tool should handle the request.
 
+### Streamlit Web UI
+
+Provides a simple chat interface where users can interact with the multi-tool agent through a browser.
+
+The Streamlit app:
+
+* sends user questions to the LangChain agent
+* displays assistant responses in a chat-style interface
+* reuses the initialized agent with Streamlit caching
+
 ## Project Structure
 
 ```text
 multi-tool-agent/
+├── app.py
 ├── src/
 │   └── multi_tool_agent/
 │       ├── config.py
@@ -69,6 +80,7 @@ The `notebooks/demo.ipynb` file contains the original experimentation and intera
 * Python
 * LangChain
 * OpenAI API
+* Streamlit
 * Pandas
 * Jupyter Notebook
 
@@ -82,7 +94,7 @@ The `notebooks/demo.ipynb` file contains the original experimentation and intera
 ```bash
 git clone https://github.com/matekalmar/multi-tool-agent.git
 cd multi-tool-agent
-pip install -e .
+uv sync
 ```
 
 ## Environment Variables
@@ -95,10 +107,17 @@ OPENAI_API_KEY=your_api_key_here
 
 ## Run the Project
 
+### Command-line version
+
 ```bash
-python -m multi_tool_agent.main
+uv run python -m multi_tool_agent.main
 ```
 
+### Streamlit web app
+
+```bash
+uv run streamlit run app.py
+```
 ## Example Queries
 
 * What is the total revenue?
@@ -117,8 +136,7 @@ This project was created to demonstrate skills relevant for a Junior AI Engineer
 
 ## Future Improvements
 
-* FastAPI deployment
-* Web UI
+* FastAPI deployment    
 * Memory support
 * Unit tests
 * Docker support
